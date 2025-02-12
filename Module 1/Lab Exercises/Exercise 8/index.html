@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <title>Dice</title>
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="index.css" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div
+        style="
+          justify-content: center;
+          display: flex;
+          align-items: center;
+          flex-direction: column;
+        "
+      >
+        <div style="display: flex; align-items: center">
+          <img
+            src="./public/dice.png"
+            width="50px"
+            height="50px"
+            style="padding-right: 20px; padding-top: 5px"
+          />
+          <h1>Exercise 8: The Dice</h1>
+        </div>
+        <p>Select your dice choice below</p>
+
+        <div class="dice-container">
+          <div class="dice" id="dice2" onclick="rollDice(2)">2</div>
+          <div class="dice" id="dice3" onclick="rollDice(3)">3</div>
+          <div class="dice" id="dice4" onclick="rollDice(4)">4</div>
+          <div class="dice" id="dice5" onclick="rollDice(5)">5</div>
+          <div class="dice" id="dice6" onclick="rollDice(6)">6</div>
+          <div class="dice" id="dice7" onclick="rollDice(7)">7</div>
+          <div class="dice" id="dice8" onclick="rollDice(8)">8</div>
+          <div class="dice" id="dice9" onclick="rollDice(9)">9</div>
+          <div class="dice" id="dice10" onclick="rollDice(10)">10</div>
+          <div class="dice" id="dice11" onclick="rollDice(11)">11</div>
+          <div class="dice" id="dice12" onclick="rollDice(12)">12</div>
+        </div>
+      </div>
+
+      <!-- Modal to show the results -->
+      <div id="myModal" class="modal">
+        <div class="modal-content">
+          <div
+            style="
+              width: 100%;
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+            "
+          >
+            <h2 id="spinningText">Spinning ..</h2>
+            <span class="close" onclick="closeModal()">&times;</span>
+          </div>
+
+          <div
+            style="
+              width: 100%;
+              height: auto;
+              justify-content: center;
+              display: flex;
+              align-items: center;
+              padding-bottom: 20px;
+            "
+          >
+            <div class="diceLarge" id="diceResult"><p id="diceText">2</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+
+  <script src="index.js"></script>
+</html>
