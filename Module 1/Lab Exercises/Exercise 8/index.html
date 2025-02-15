@@ -26,18 +26,16 @@
         </div>
         <p>Select your dice choice below</p>
 
+        <!-- Dice container -->
         <div class="dice-container">
-          <div class="dice" id="dice2" onclick="rollDice(2)">2</div>
-          <div class="dice" id="dice3" onclick="rollDice(3)">3</div>
-          <div class="dice" id="dice4" onclick="rollDice(4)">4</div>
-          <div class="dice" id="dice5" onclick="rollDice(5)">5</div>
-          <div class="dice" id="dice6" onclick="rollDice(6)">6</div>
-          <div class="dice" id="dice7" onclick="rollDice(7)">7</div>
-          <div class="dice" id="dice8" onclick="rollDice(8)">8</div>
-          <div class="dice" id="dice9" onclick="rollDice(9)">9</div>
-          <div class="dice" id="dice10" onclick="rollDice(10)">10</div>
-          <div class="dice" id="dice11" onclick="rollDice(11)">11</div>
-          <div class="dice" id="dice12" onclick="rollDice(12)">12</div>
+          <script>
+            for (let i = 2; i <= 12; i++) {
+              document.write(`
+<div class="dice" id="dice${i}" onclick="rollDice(${i})" onMouseEnter="this.style.backgroundColor='lightblue'" onMouseLeave="this.style.backgroundColor='white'">                  ${i}
+                </div>
+              `);
+            }
+          </script>
         </div>
       </div>
 
@@ -73,5 +71,5 @@
     </div>
   </body>
 
-  <script src="index.js"></script>
+  <script type="module" src="index.js"></script>
 </html>

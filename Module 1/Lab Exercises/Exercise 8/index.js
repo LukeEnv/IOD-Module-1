@@ -1,5 +1,5 @@
-function rollDice(diceNumber) {
-  const diceElement = document.getElementById(`dice${diceNumber}`);
+export function rollDice(diceNumber) {
+  const diceElement = document?.getElementById(`dice${diceNumber}`);
   if (diceElement) {
     const modal = document.getElementById("myModal");
     const diceElement = document.getElementById("diceText");
@@ -15,16 +15,27 @@ function rollDice(diceNumber) {
       }
       i++;
       if (i > 12) {
-        const result = Math.floor(Math.random() * diceNumber) + 1;
-        console.log("Result: " + result);
-
+        const result = calculateResult(diceNumber);
         diceElement.textContent = result;
         spinningText.textContent = "Result!";
 
         clearInterval(interval);
+        return result;
       }
     }, 100);
+  } else {
+    return calculateResult(diceNumber);
   }
+}
+
+export function calculateResult(diceNumber) {
+  if (diceNumber < 2) {
+    return "Invalid dice number, minimum is 2";
+  }
+  if (diceNumber > 12) {
+    return "Invalid dice number, maximum is 12";
+  }
+  return Math.floor(Math.random() * diceNumber) + 1;
 }
 
 const closeModal = () => {
@@ -32,14 +43,22 @@ const closeModal = () => {
   modal.style.display = "none";
 };
 
-for (let i = 1; i <= 12; i++) {
+function mouseenter(element) {
   const diceElement = document.getElementById(`dice${i}`);
   if (diceElement) {
-    diceElement.addEventListener("mouseenter", () => {
-      diceElement.style.backgroundColor = "lightblue";
-    });
-    diceElement.addEventListener("mouseleave", () => {
-      diceElement.style.backgroundColor = "";
-    });
+    diceElement.style.backgroundColor = "lightblue";
   }
+}
+
+function mouseleave(element) {
+  const diceElement = document.getElementById(`dice${i}`);
+  if (diceElement) {
+    diceElement.style.backgroundColor = "";
+  }
+}
+
+if (typeof window !== "undefined") {
+  window.rollDice = rollDice;
+  window.calculateResult = calculateResult;
+  window.closeModal = closeModal;
 }
