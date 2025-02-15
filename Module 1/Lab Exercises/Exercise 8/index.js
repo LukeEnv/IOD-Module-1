@@ -38,23 +38,9 @@ export function calculateResult(diceNumber) {
   return Math.floor(Math.random() * diceNumber) + 1;
 }
 
-const closeModal = () => {
+function closeModal() {
   const modal = document.getElementById("myModal");
   modal.style.display = "none";
-};
-
-function mouseenter(element) {
-  const diceElement = document.getElementById(`dice${i}`);
-  if (diceElement) {
-    diceElement.style.backgroundColor = "lightblue";
-  }
-}
-
-function mouseleave(element) {
-  const diceElement = document.getElementById(`dice${i}`);
-  if (diceElement) {
-    diceElement.style.backgroundColor = "";
-  }
 }
 
 if (typeof window !== "undefined") {
